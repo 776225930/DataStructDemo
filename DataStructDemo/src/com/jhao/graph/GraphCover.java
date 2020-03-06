@@ -51,6 +51,7 @@ public class GraphCover {
         edges[F][G] = 1;
         edges[G][F] = 1;
         edges[G][E] = 1;
+        queue = new int[size];
     }
 
     /**
@@ -115,12 +116,44 @@ public class GraphCover {
 
     }
 
+    private int[] queue;
+
+    public void BreadthFirst2(int start, int tail) {
+        int last = tail;
+        for (int index = start; index <= tail; index++) {
+            int node = queue[index];
+            System.out.println("齐天大圣到-->" + nodes[node] + "一游");
+            //找出 所有 邻接点
+            for (int j = 0; j < size; j++) {
+                //两节点之间相通的(和该节点有边)
+                if (edges[node][j] == 1 && visited[j] == 0) {
+                    //邻接点
+                    visited[j] = 1;
+                    queue[++last] = j;
+                }
+            }
+        }
+
+        //遍历下一批节点
+        if (last > tail) {
+            BreadthFirst2(tail + 1, last);
+        }
+    }
+
+    public void BreadthFirst(int start) {
+        queue[0] = start;
+        visited[start] = 1;
+        BreadthFirst2(0, 0);
+    }
+
     public static void main(String[] args) {
         GraphCover graphCover = new GraphCover();
 //        graphCover.DeepFirst(5);
-        List<Integer> lastNodes = new ArrayList<>();
-        lastNodes.add(0);
-        graphCover.BreadthFirst(lastNodes);
+//        List<Integer> lastNodes = new ArrayList<>();
+//        lastNodes.add(0);
+//        graphCover.BreadthFirst(lastNodes);
+
+        graphCover.BreadthFirst(0);
 
     }
 }
