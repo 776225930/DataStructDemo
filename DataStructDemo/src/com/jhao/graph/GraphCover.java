@@ -1,6 +1,8 @@
 package com.jhao.graph;
 
-import java.awt.Frame;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author JiangHao
@@ -86,8 +88,39 @@ public class GraphCover {
 
     }
 
+    /**
+     * 广度优先遍历
+     * 广度优先搜索遍历图的过程中以v 为起始点，由近至远，
+     * 依次访问和v 有路径相通且路径长度为1,2,…的顶点
+     * 第一批节点的邻接点，?
+     */
+    public void BreadthFirst(List<Integer> tmp_nodes) {
+        List<Integer> lastNodes = new ArrayList<>();
+        for (int node : tmp_nodes) {
+            visited[node] = 1;
+            System.out.println("齐天大圣到-->" + nodes[node] + "一游");
+            //找出 所有 邻接点
+            for (int j = 0; j < size; j++) {
+                //两节点之间相通的(和该节点有边)
+                if (edges[node][j] == 1 && visited[j] == 0) {
+                    //邻接点
+                    lastNodes.add(j);
+                }
+            }
+        }
+        //遍历下一批节点
+        if (lastNodes.size() > 0) {
+            BreadthFirst(lastNodes);
+        }
+
+    }
+
     public static void main(String[] args) {
         GraphCover graphCover = new GraphCover();
-        graphCover.DeepFirst(5);
+//        graphCover.DeepFirst(5);
+        List<Integer> lastNodes = new ArrayList<>();
+        lastNodes.add(0);
+        graphCover.BreadthFirst(lastNodes);
+
     }
 }
