@@ -3,23 +3,23 @@ package com.jhao.sort;
 /**
  * @author JiangHao
  * @date 2020/3/8
- * @describe 冒泡排序
+ * @describe
  */
-public class BubbleSort {
-
+public class InsertSort {
     public static int[] sort(int[] array) {
-        if (array.length == 0) {
+        if (array.length == 0 || array.length == 1) {
             return array;
         }
-        //每完成一次循环都会有一个元素到达该到的位置，下一次就不必再参加循环
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length - i - 1; j++) {
-                if (array[j] > array[j + 1]) {
-                    int tmp = array[j + 1];
-                    array[j + 1] = array[j];
-                    array[j] = tmp;
-                }
+        int currentValue;//待排序的元素
+        for (int i = 0; i < array.length - 1; i++) {
+            int preIndex = i;//已排序元素的位置
+            currentValue = array[preIndex + 1];
+            while (preIndex >= 0 && array[preIndex] > currentValue) {
+                array[preIndex + 1] = array[preIndex];
+                preIndex--;//
             }
+            array[preIndex + 1] = currentValue;
+
         }
         return array;
     }
