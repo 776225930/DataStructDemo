@@ -1,7 +1,5 @@
 package com.jhao.graph;
 
-import sun.misc.Launcher;
-
 /**
  * @author JiangHao
  * @date 2020/3/7
@@ -80,8 +78,13 @@ public class Dijkstra {
         edges[N][M] = 3;
     }
 
-    //1、扫描AA邻接点，记录邻接点权重值
-    private void flushlast(int node) {
+
+    /**
+     * 1、扫描AA邻接点，记录邻接点权重值
+     *
+     * @param node
+     */
+    private void flushLast(int node) {
         isMarked[node] = 1;
         System.out.println(path[node]);
         //扫描邻接点
@@ -89,7 +92,7 @@ public class Dijkstra {
             //node和每个点可能存在边
             if (edges[node][i] > 0) {
                 //计算AA节点到A节点的权重值
-                int distant = distances[node] + edges[node][i];//？？？
+                int distant = distances[node] + edges[node][i];//distances[i]在search时再次赋值为0
                 if (distant < distances[i]) {//最短路径
                     distances[i] = distant;
                     path[i] = path[node] + "-->" + nodes[i];
@@ -99,7 +102,13 @@ public class Dijkstra {
         }
     }
 
-    //	2、找出邻接点里最小的那个值
+
+    /**
+     * 2、找出邻接点里最小的值
+     * path 对应AA到每个节点(当前)的最短距离
+     *
+     * @return
+     */
     private int getShort() {
         int last = -1;//节点
         int min = Integer.MAX_VALUE;
@@ -115,12 +124,11 @@ public class Dijkstra {
         return last;
     }
 
-    private void search() {
-        int node = 0;
+    private void search(int node) {
         path[node] = nodes[node];
         distances[node] = 0;
         do {
-            flushlast(node);
+            flushLast(node);
             node = getShort();
         } while (node != -1);
 
@@ -128,7 +136,7 @@ public class Dijkstra {
 
     public static void main(String[] args) {
         Dijkstra dijkstra = new Dijkstra();
-        dijkstra.search();
+        dijkstra.search(0);
     }
 
 }
