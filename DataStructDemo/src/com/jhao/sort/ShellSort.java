@@ -15,7 +15,7 @@ public class ShellSort {
         int gap = len / 2;//增量
         //组内待排序的数据
         int currentValue;
-        while (gap > 0) {
+        while (gap > 0) {//不断分组
             for (int i = gap; i < len; i++) {
                 currentValue = array[i];
                 int preIndex = i - gap;
@@ -26,7 +26,6 @@ public class ShellSort {
                 }
                 array[preIndex + gap] = currentValue;
             }
-
             gap = gap / 2;
         }
         return array;
