@@ -3,7 +3,7 @@ package com.jhao.sort;
 /**
  * @author JiangHao
  * @date 2020/3/8
- * @describe 插入排序
+ * @describe 选择排序
  */
 public class ChoiceSort {
 

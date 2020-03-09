@@ -2,26 +2,32 @@ package com.jhao.sort;
 
 /**
  * @author JiangHao
- * @date 2020/3/8
- * @describe 插入排序
+ * @date 2020/3/9
+ * @describe 希尔排序
  */
-public class InsertSort {
+public class ShellSort {
+
     public static int[] sort(int[] array) {
         if (array.length == 0 || array.length == 1) {
             return array;
         }
-        int currentValue;//待排序的元素
-        for (int i = 0; i < array.length - 1; i++) {
-            int preIndex = i;//已排序元素(其中的最后一个元素)的位置
-            currentValue = array[preIndex + 1];
-            while (preIndex >= 0 && array[preIndex] > currentValue) {
-                //一直循环(在已排序的元素中)找到合适的插入位置,(找到的话)刷新preIndex+1的值
-                array[preIndex + 1] = array[preIndex];
-                preIndex--;//
+        int len = array.length;
+        int gap = len / 2;//增量
+        //组内待排序的数据
+        int currentValue;
+        while (gap > 0) {
+            for (int i = gap; i < len; i++) {
+                currentValue = array[i];
+                int preIndex = i - gap;
+                //组内排序
+                while (preIndex >= 0 && array[preIndex] > currentValue) {
+                    array[preIndex + gap] = array[preIndex];
+                    preIndex = preIndex - gap;
+                }
+                array[preIndex + gap] = currentValue;
             }
-            //
-            array[preIndex + 1] = currentValue;
 
+            gap = gap / 2;
         }
         return array;
     }
