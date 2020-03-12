@@ -36,7 +36,7 @@ public class CountSort {
         //遍历整个原始数组，将原始数组中的每一个元素值转化为计数数组下标
         //并将计数数组下标对应的元素值大小进行累加
         for (int i = 0; i < array.length; i++) {
-            counterArray[array[i] + bias]++;
+            counterArray[array[i] + bias]++;//计算每个数据出现的次数
         }
         //
         System.out.println("计数数组为:");
