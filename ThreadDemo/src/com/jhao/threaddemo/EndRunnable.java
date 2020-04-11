@@ -4,6 +4,8 @@ package com.jhao.threaddemo;
  * @author JiangHao
  * @date 2020/4/9
  * @describe 中断Runnable类型的线程
+ * 和Thread类似，通过interrupt()和isInterrupt()方法,
+ * 不同的是通过Thread.currentThread()获取当前线程对象
  */
 public class EndRunnable {
 
@@ -25,6 +27,6 @@ public class EndRunnable {
         Thread endThread = new Thread(useRunable);
         endThread.start();
         Thread.sleep(10);
-//        endThread.interrupt();
+        endThread.interrupt();
     }
 }
