@@ -25,7 +25,7 @@ public class Express {
      */
     public synchronized void changeKm() {
         this.km = 101;
-        notifyAll();
+        notify();
     }
 
     /**
@@ -33,7 +33,7 @@ public class Express {
      */
     public synchronized void changeSite() {
         this.site = "BeiJing";
-        notifyAll();
+        notify();
     }
 
     public synchronized void waitKm() {

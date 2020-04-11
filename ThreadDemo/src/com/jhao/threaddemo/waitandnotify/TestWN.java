@@ -35,7 +35,7 @@ public class TestWN {
             new CheckSite().start();
         }
         //三个线程,等待里程数的变化
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 13; i++) {
             new CheckKm().start();
         }
         Thread.sleep(1000);
