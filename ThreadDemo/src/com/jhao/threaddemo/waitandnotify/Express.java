@@ -39,7 +39,7 @@ public class Express {
     public synchronized void waitKm() {
         while (this.km < 100) {
             try {
-                System.out.println(" I will wait ");
+//                System.out.println(" I will wait ");
                 //wait()被notify()后，接着执行wait()后面的语句
                 wait();
                 System.out.println(" check km thread[" + Thread.currentThread().getName() + "] is be notified");

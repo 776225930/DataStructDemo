@@ -31,11 +31,11 @@ public class TestWN {
 
     public static void main(String[] args) throws InterruptedException {
         //三个线程,等待快递到达地点的变化
-        for (int i = 0; i < 3; i++) {
-            new CheckSite().start();
-        }
+//        for (int i = 0; i < 3; i++) {
+//            new CheckSite().start();
+//        }
         //三个线程,等待里程数的变化
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 3; i++) {
             new CheckKm().start();
         }
         Thread.sleep(1000);
