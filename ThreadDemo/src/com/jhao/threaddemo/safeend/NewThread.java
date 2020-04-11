@@ -1,4 +1,4 @@
-package com.jhao.threaddemo;
+package com.jhao.threaddemo.safeend;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;

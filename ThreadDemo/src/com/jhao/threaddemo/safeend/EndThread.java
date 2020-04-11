@@ -1,4 +1,4 @@
-package com.jhao.threaddemo;
+package com.jhao.threaddemo.safeend;
 
 /**
  * @author JiangHao
