@@ -31,10 +31,14 @@ public class SyncClzAndInst {
     }
 
 
-    private   Object object = new Object();
+    //对象锁
+    private static Object object = new Object();
 
+    /**
+     * 使用对象锁
+     */
     private void synStaticObject() {
-        synchronized (object) {//类似于类锁
+        synchronized (object) {
             SleepTools.second(1);
             System.out.println("使用对象锁 syncClass going...");
             SleepTools.second(1);
@@ -76,25 +80,19 @@ public class SyncClzAndInst {
     /**
      * 锁对象
      */
-    private   void instance() {
-        synchronized (object){
-            SleepTools.second(3);
-            System.out.println("synInstance is going...     " + this.toString());
-            SleepTools.second(3);
-            System.out.println("synInstance ended       " + this.toString());
-        }
-
+    private synchronized void instance() {
+        SleepTools.second(3);
+        System.out.println("synInstance is going...     " + this.toString());
+        SleepTools.second(3);
+        System.out.println("synInstance ended       " + this.toString());
     }
 
     //锁对象
-    private   void instance2() {
-        synchronized (object){
-            SleepTools.second(3);
-            System.out.println("synInstance2 is going...      " + this.toString());
-            SleepTools.second(3);
-            System.out.println("synInstance2 ended      " + this.toString());
-        }
-
+    private synchronized void instance2() {
+        SleepTools.second(3);
+        System.out.println("synInstance2 is going...      " + this.toString());
+        SleepTools.second(3);
+        System.out.println("synInstance2 ended      " + this.toString());
     }
 
     public static void main(String[] args) {
@@ -103,7 +101,7 @@ public class SyncClzAndInst {
         SyncClzAndInst syncClzAndInst = new SyncClzAndInst();
         Thread t1 = new Thread(new SyncObject(syncClzAndInst));
         SyncClzAndInst syncClzAndInst1 = new SyncClzAndInst();
-        Thread t2 = new Thread(new SyncObject2(syncClzAndInst));
+        Thread t2 = new Thread(new SyncObject2(syncClzAndInst1));
         t1.start();
         t2.start();
 
