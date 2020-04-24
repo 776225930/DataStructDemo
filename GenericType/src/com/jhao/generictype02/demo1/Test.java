@@ -12,7 +12,9 @@ public class Test {
 
     public static void main(String[] args) {
 //        scene01();
-        scene02();
+//        scene02();
+//        scene03();
+        scene04();
     }
 
 
@@ -43,6 +45,20 @@ public class Test {
         xiaoLi.eat(aiPlate.get());//bingo
     }
 
+    public static void scene04() {
+        XiaoLi xiaoLi = new XiaoLi();
+        XiaoMing xiaoMing = new XiaoMing();
+        XiaoMingMa xiaoMingMa = new XiaoMingMa();
+
+        //假如这个盘子是智能的，能主动检测你往里面装什么
+        //小明给的这个盘子只能装香蕉,方法泛型类型推断
+        AIPlate<Banana> aiPlate = xiaoMing.<Banana>getAIPlate();
+        //小明妈就不会装错了
+        xiaoMingMa.add1();//使用反射破坏泛型
+        //小丽吃香蕉
+        xiaoLi.eat(aiPlate.get());
+    }
+
     public static void scene03() {
         int[] ints = new int[10];
         sort(ints);
@@ -51,6 +67,7 @@ public class Test {
         Object[] objects = new Object[10];
         sort(objects);
     }
+
 
     public static void sort(int[] array) {
     }//只能对int类型使用
