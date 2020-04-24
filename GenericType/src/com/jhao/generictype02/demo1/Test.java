@@ -55,6 +55,7 @@ public class Test {
         AIPlate<Banana> aiPlate = xiaoMing.<Banana>getAIPlate();
         //小明妈就不会装错了
         xiaoMingMa.add1();//使用反射破坏泛型
+        xiaoMingMa.add2(aiPlate);//使用反射破坏泛型
         //小丽吃香蕉
         xiaoLi.eat(aiPlate.get());
     }

@@ -45,5 +45,23 @@ public class XiaoMingMa extends Person {
         }
     }
 
+    public void add2(Plate<? extends Fruit> fruitPlate) {
+
+        try {
+            Method set = fruitPlate.getClass().getMethod("set", Object.class);
+            set.setAccessible(true);
+//            set.invoke(fruitPlate, new Apple());//
+            set.invoke(fruitPlate, new Banana());//
+            Fruit fruit = fruitPlate.get();
+            System.out.println(fruit);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
