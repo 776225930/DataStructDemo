@@ -2,6 +2,10 @@ package com.jhao.generictype02.demo1;
 
 import com.sun.org.apache.regexp.internal.RE;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author JiangHao
  * @date 2020/4/25
@@ -14,7 +18,12 @@ public class Test {
 //        scene01();
 //        scene02();
 //        scene03();
-        scene04();
+//        scene04();
+        XiaoMingMa xiaoMingMa = new XiaoMingMa();
+//        List<Double> doubleList = Arrays.asList(1.2, 2.1, 3.2);//坑爹的是Arrays有一个内部类也叫ArrayList
+        List<Double> doubleList = new ArrayList<>();
+        doubleList.add(1.1);
+        System.out.println(xiaoMingMa.sumOfList(doubleList));
     }
 
 
