@@ -42,4 +42,48 @@ public class Test {
         //小丽吃香蕉
         xiaoLi.eat(aiPlate.get());//bingo
     }
+
+    public static void scene03() {
+        int[] ints = new int[10];
+        sort(ints);
+        double[] doubles = new double[10];
+        sort(doubles);
+        Object[] objects = new Object[10];
+        sort(objects);
+    }
+
+    public static void sort(int[] array) {
+    }//只能对int类型使用
+
+    public static void sort(double[] array) {
+    }//只能对double使用
+
+    //泛型不能用于定义数组，没有范型数组，但下面使用可以
+    public static <T> void sort(T[] array) {
+    }
+
+}
+
+class Test1 {
+    static class A {
+    }
+
+    static class A1 {
+    }
+
+    static interface B {
+    }
+
+    static interface C {
+    }
+
+    //        static class D<T extends B & A &C>{}//编译报错
+    //具有多个限定的类型变量是范围中列出的所有类型的子类型。如果范围之一是类，则必须首先指定它
+    static class D1<T extends A & B & C> {
+    }//OK
+
+    //单继承
+//    static class D2<T extends  A & A1 & B & C>{}
+
+
 }
