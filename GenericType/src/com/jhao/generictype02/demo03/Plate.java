@@ -1,4 +1,4 @@
-package com.jhao.generictype02.demo2;
+package com.jhao.generictype02.demo03;
 
 /**
  * @author JiangHao
@@ -6,8 +6,8 @@ package com.jhao.generictype02.demo2;
  * @describe
  */
 public interface Plate<T> {
-
     void set(T t);
 
     T get();
+
 }

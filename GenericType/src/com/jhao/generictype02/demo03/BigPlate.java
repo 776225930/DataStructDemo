@@ -1,27 +1,28 @@
-package com.jhao.generictype02.demo2;
+package com.jhao.generictype02.demo03;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
 
 /**
  * @author JiangHao
  * @date 2020/4/25
  * @describe
  */
-public class ConditionalPlate<T> implements Plate<T> {
+public class BigPlate<T> extends AIPlate<T> {
 
-    private List<T> items = new ArrayList<T>(10);
+    private List<T> items = new ArrayList<>(20);
 
-    public ConditionalPlate() {
+
+    public BigPlate() {
 
     }
 
+    @Override
     public void set(T t) {
         items.add(t);
     }
 
+    @Override
     public T get() {
         int index = items.size() - 1;
         if (index >= 0) {
@@ -33,17 +34,8 @@ public class ConditionalPlate<T> implements Plate<T> {
 
     @Override
     public String toString() {
-        return "ConditionalPlate{" +
+        return "BigPlate{" +
                 "items=" + items +
                 '}';
     }
-//    @Override
-//    public boolean equals(T t) {
-//        return super.equals(t);
-//    }
-
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
 }
