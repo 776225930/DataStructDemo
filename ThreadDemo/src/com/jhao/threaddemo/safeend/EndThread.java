@@ -24,7 +24,8 @@ public class EndThread {
             String threadName = Thread.currentThread().getName();
             System.out.println(threadName + " interrrupt flag ==== " + isInterrupted());
             //2.
-            while (!Thread.interrupted()) {
+//            while (!Thread.interrupted()) {
+            while (!Thread.currentThread().isInterrupted()) {
                 //1.
 //                while (!isInterrupted()) {
                 System.out.println(threadName + " is running");

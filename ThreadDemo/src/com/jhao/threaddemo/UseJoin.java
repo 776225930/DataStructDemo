@@ -2,6 +2,9 @@ package com.jhao.threaddemo;
 
 import com.jhao.threaddemo.tools.SleepTools;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author JiangHao
  * @date 2020/4/12
@@ -38,5 +41,11 @@ public class UseJoin {
         }
         SleepTools.second(2);//让主线程休眠2秒
         System.out.println(Thread.currentThread().getName() + " terminate.");
+        List<Object> list = new ArrayList<>();
+        list.add(new Thread());
+        List<?> list1 = new ArrayList<>();
+        list.add(null);
+        List<String> list2 = new ArrayList<>();
     }
+
 }

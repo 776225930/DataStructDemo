@@ -74,10 +74,10 @@ public class UseThreadPool {
         ExecutorService pool = new ThreadPoolExecutor(3, 4, 3,
                 TimeUnit.SECONDS, new ArrayBlockingQueue<>(10),
                 new ThreadPoolExecutor.DiscardOldestPolicy());
-        for (int i = 0; i < 6; i++) {
-            Worker worker = new Worker("worker_" + i);
-            pool.execute(worker);
-        }
+//        for (int i = 0; i < 6; i++) {
+//            Worker worker = new Worker("worker_" + i);
+//            pool.execute(worker);
+//        }
         for (int i = 0; i < 6; i++) {
             CallWorker callWorker = new CallWorker("callableWorker_" + i);
             Future<String> result = pool.submit(callWorker);
