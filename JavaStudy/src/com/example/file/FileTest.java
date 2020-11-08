@@ -77,13 +77,13 @@ public class FileTest {
         File file = new File("hello1.txt");
         if (!file.exists()) {
             try {
-                file.createNewFile();
+                boolean newFile = file.createNewFile();
                 System.out.println("创建成功");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            file.delete();
+            boolean delete = file.delete();
             System.out.println("删除成功");
         }
 
