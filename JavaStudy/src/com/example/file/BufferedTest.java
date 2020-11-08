@@ -21,6 +21,8 @@ public class BufferedTest {
 
     /**
      * 实现非文本文件复制
+     * 比字节流读写速度快
+     * 原因:内部提供了一个8192字节(8kb)的缓冲区
      */
     @Test
     public void test1() {
@@ -40,9 +42,11 @@ public class BufferedTest {
                 bufferedOutputStream.write(buffer, 0, buffer.length);
             }
             System.out.println(System.currentTimeMillis() - start);
+            //先关闭外层，再关闭内层
             bufferedInputStream.close();
-            inputStream.close();
             bufferedOutputStream.close();
+            //关闭外层时会顺便关闭内层，这里可以不写
+            inputStream.close();
             outputStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
