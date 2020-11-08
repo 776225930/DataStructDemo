@@ -45,13 +45,14 @@ public class FileInputOutputStream {
 
         //1.造文件
         File srcFile = new File("301387.jpg");
-        File destFile = new File("3013871.jpg");
+        File destFile = new File("test.jpg");
         //2.造流
         FileInputStream inputStream = null;
         FileOutputStream outputStream = null;
         try {
             inputStream = new FileInputStream(srcFile);
             outputStream = new FileOutputStream(destFile);
+            long start = System.currentTimeMillis();
             //3.读取
             byte[] buffer = new byte[1024];
             int len = -1;
@@ -59,6 +60,7 @@ public class FileInputOutputStream {
 //                System.out.print(new String(buffer,0,buffer.length));
                 outputStream.write(buffer, 0, buffer.length);
             }
+            System.out.println(System.currentTimeMillis() - start);
             //4.关闭资源
             inputStream.close();
             outputStream.close();
