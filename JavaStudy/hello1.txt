@@ -12,4 +12,18 @@ Stream:对数据进行一系列流式操作，源数据并不变。DataSource-->
   按流向不同分为:输入流、输出流
   按照角色的不同分为:节点流、处理流
   抽象基类：字节流 InputStream、putStream  字符流 Reader、Writer
+  节点流:FileInputStream、FileOutputStream、 FileReader、FileWriterStream:对数据进行一系列流式操作，源数据并不变。DataSource-->handle1->handle2->DataTarget
+ 注意:1.Stream 自己不会存储元素
+      2.Stream 不会改变源对象。相反，他们会返回一个持有此案结果的Stream。
+      3.Stream操作是具有延迟性的。意味着他们会等到需要结果时才执行
+ Stream的操作三个步骤:
+      创建：一个数据源(数组、集合)，获取一个流
+      中间操作:一个中间操作链对数据源的数据进行处理
+      终止操作:一个终止操作，执行之间操作，并产生结果
+  Stream.map()和Stream.flatMap() 类似于 List.add()和List.addAll()
+
+  按操作单位不同可分为：字节流(8bit)和字符流(16bit)
+  按流向不同分为:输入流、输出流
+  按照角色的不同分为:节点流、处理流
+  抽象基类：字节流 InputStream、putStream  字符流 Reader、Writer
   节点流:FileInputStream、FileOutputStream、 FileReader、FileWriter
