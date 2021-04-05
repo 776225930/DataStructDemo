@@ -25,6 +25,7 @@ public class HasInterrputException {
                             + isInterrupted());
                     //
                     //1.return;
+                    //2.
                     interrupt();
                 }
                 System.out.println(Thread.currentThread().getName()
