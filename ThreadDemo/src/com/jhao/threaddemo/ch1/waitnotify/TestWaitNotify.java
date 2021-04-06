@@ -33,6 +33,7 @@ public class TestWaitNotify {
             new CheckKm().start();
         }
         Thread.sleep(1000);
+
         express.changeKm();//快递地点变化
     }
 }
