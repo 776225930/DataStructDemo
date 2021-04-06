@@ -1,9 +1,8 @@
-package com.jhao.threaddemo.ch2.sum;
+package com.jhao.threaddemo.ch2.forkjoin.sum;
 
 import com.jhao.threaddemo.tools.SleepTools;
 
 import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.RecursiveTask;
 
 /**

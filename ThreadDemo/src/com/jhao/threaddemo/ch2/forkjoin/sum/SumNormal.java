@@ -1,4 +1,4 @@
-package com.jhao.threaddemo.ch2.sum;
+package com.jhao.threaddemo.ch2.forkjoin.sum;
 
 import com.jhao.threaddemo.tools.SleepTools;
 
