@@ -9,7 +9,7 @@ import java.util.concurrent.RecursiveTask;
 /**
  * @author JiangHao
  * @date 2021/4/6
- * @describe ForkJoin执行累加
+ * @describe ForkJoin 执行累加
  */
 public class SumArray {
 
@@ -51,8 +51,9 @@ public class SumArray {
 
     public static void main(String[] args) {
         int src[] = MakeArray.makeArray();
-
+        /*new出池的实例*/
         ForkJoinPool pool = new ForkJoinPool();
+        /*new出Task的实例*/
         SumTask innerFind = new SumTask(src, 0, src.length-1);
         long start = System.currentTimeMillis();
         pool.invoke(innerFind);
